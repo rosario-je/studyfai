@@ -9,11 +9,24 @@ dotenv.config();
 const app = express()
 
 app.use(express.json);
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 
 
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`Server connected to port ${PORT}`);
+});
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
-})
+
+// Database connection handling
+db.on('error', (error) => {
+  console.error("Database connection error:", error);
+});
+
+db.once('connected', () => {
+  console.log('Database connected');
+});

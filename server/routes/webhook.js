@@ -3,14 +3,14 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { Webhook } from 'svix';
 
-import User from "../Schemas/userModel.js";
+import userModel from '../db/models/userModel.js'
 
 dotenv.config();
 
 
 const router = express.Router()
 
-router.post('/webhooks',
+router.post('/signup',
   bodyParser.raw({ type: 'application/json' }),
 
   async function (req, res) {
@@ -35,7 +35,7 @@ router.post('/webhooks',
         const username = attributes.username;
         const email = attributes.email;
 
-        const user = new User({
+        const newUser = new userModel({
           clerkUserId: id,
           firstName,
           lastName,
@@ -43,8 +43,8 @@ router.post('/webhooks',
           email,
         });
 
-        await user.save();
-        console.log('User saved to database');
+        const result = await newUser.save();
+        console.log('User saved to database', result);
       }
       res.status(200).json({
         success: true,

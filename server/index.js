@@ -1,24 +1,30 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { Webhook } from 'svix';
-import bodyParser from 'body-parser'
+import bodyParser from 'body-parser';
+import db from './db/connection.js';
+
+
+import dbWebhook from './routes/webhook.js'
 
 dotenv.config();
-
 const app = express()
+app.use(express.json());
 
-app.use(express.json);
+//CORS configuration
 app.use(cors({
-  origin: 'http://localhost:5173', 
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
 
+//Routes
+app.use("/api", dbWebhook)
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-  console.log(`Server connected to port ${PORT}`);
+
+const port = process.env.PORT;
+app.listen(port, () => {
+  console.log(`Server connected to port ${port}`);
 });
 
 

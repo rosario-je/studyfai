@@ -19,7 +19,7 @@ app.use(cors({
 }));
 
 //Routes
-app.use("/api", dbWebhook)
+app.use("/api/webhook", dbWebhook)
 
 
 const port = process.env.PORT;

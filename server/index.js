@@ -46,6 +46,10 @@ app.post(
         await user.save();
         console.log('User saved to database');
       }
+      else if (eventType === 'user.deleted') {
+        await User.findOneAndDelete({ clerkUserId: id });
+        console.log(`User with the id of ${id} and name ${firstName} ${lastName} has been deleted from the database`);
+      }
       res.status(200).json({
         success: true,
         message: 'Webhook received',

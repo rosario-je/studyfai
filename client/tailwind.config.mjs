@@ -5,7 +5,24 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: '15px',
+    },
+    fontFamily: {
+      primary: ['Libre Franklin', 'sans-serif']
+    },
+    extend: {
+      colors: {
+        primaryTxt: '2F2F2F',
+        secondaryTxt: '#545454',
+        accentTxt: '#595959',
+        primaryBtn: {
+          default: '#0084FD',
+          hover: '2F2F2F'
+        }
+      }
+    },
   },
   plugins: [],
 }

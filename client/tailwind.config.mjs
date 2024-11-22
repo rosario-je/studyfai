@@ -18,8 +18,8 @@ export default {
         secondaryTxt: '#545454',
         accentTxt: '#595959',
         primaryBtn: {
-          default: '#0084FD',
-          hover: '2F2F2F'
+          DEFAULT: '#0084FD',
+          hover: '#2F2F2F'
         }
       }
     },

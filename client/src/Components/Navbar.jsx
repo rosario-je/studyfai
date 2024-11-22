@@ -10,11 +10,11 @@ const navigation = [
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="sticky inset-x-0 top-0 z-50">
+    <header className=" sticky inset-x-0 top-0 z-50 backdrop-blur-3xl">
       {/* Main Navbar */}
       <nav
         aria-label="Global"
-        className="flex items-center justify-between p-6 lg:px-8"
+        className="container flex items-center justify-between p-6 lg:px-8"
       >
         {/* Navbar Logo */}
         <div className="flex lg:flex-1">

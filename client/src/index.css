@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn-primary {
-  @apply text-sm/6 font-medium text-white rounded-full bg-primaryBtn-default
+  @apply text-sm/6 font-medium text-white rounded-full bg-primaryBtn hover:bg-primaryBtn-hover;
 }
 
 .btn-secondary {

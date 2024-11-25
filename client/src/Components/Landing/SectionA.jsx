@@ -1,13 +1,11 @@
 const SectionA = () => {
   return (
     <div className="relative isolate container pt-10 lg:px-8">
-
       {/* Background blue shape */}
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-60"
       >
-        
         <div
           style={{
             clipPath:
@@ -18,9 +16,8 @@ const SectionA = () => {
       </div>
 
       {/* Hero section Text */}
-      <div className="mx-auto max-w-3xl py-10 sm:py-10 lg:py-2">
+      <div className="mx-auto max-w-3xl py-10 sm:py-10 lg:py-2 font-primary">
         <div className="text-center">
-
           {/* App heading and subheading */}
           <h1 className="text-5xl font-semibold tracking-tight text-primaryTxt sm:text-5xl">
             AI-powered studying for everyone
@@ -39,10 +36,11 @@ const SectionA = () => {
           </div>
         </div>
         <div className="img-container flex justify-center pt-3">
-            <img src="https://cdn.dribbble.com/users/480348/screenshots/10767749/media/5ad203c8991aee2fb2111eeec7d1917e.png?resize=1600x1200&vertical=center" alt="dashboard example"
+          <img
+            src="https://cdn.dribbble.com/users/480348/screenshots/10767749/media/5ad203c8991aee2fb2111eeec7d1917e.png?resize=1600x1200&vertical=center"
+            alt="dashboard example"
             className="h-auto w-[560px]"
-            />
-
+          />
         </div>
       </div>
 

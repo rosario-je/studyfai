@@ -18,7 +18,7 @@ function SectionB() {
       </div>
 
       {/* Hero section Text */}
-      <div className="mx-auto  py-10 sm:py-10 lg:py-2 font-primary flex justify-between">
+      <div className="mx-auto py-10 sm:py-10 lg:py-2 font-primary flex flex-col md:flex-row justify-around">
         {/* Feature box */}
         <FeaturesBox
           subtitle="Summarize study material"

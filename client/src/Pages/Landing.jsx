@@ -1,15 +1,15 @@
 // import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 // import { useState } from "react";
-import Navbar from "../Components/Header";
-import SectionA from "../Components/Landing/SectionA";
-import SectionB from "../Components/Landing/SectionB";
-import SectionC from "../Components/Landing/SectionC";
-import Footer from "../Components/Landing/Footer";
+import Header from "../components/LandingComponents/Header";
+import SectionA from "../components/LandingComponents/SectionA";
+import SectionB from "../components/LandingComponents/SectionB";
+import SectionC from "../components/LandingComponents/SectionC";
+import Footer from "../components/LandingComponents/Footer";
 
 const Landing = () => {
   return (
     <div className="bg-white">
-      <Navbar />
+      <Header />
       <SectionA />
       <SectionB />
       <SectionC />
@@ -19,10 +19,3 @@ const Landing = () => {
 };
 
 export default Landing;
-
-// <SignedOut>
-//   <SignInButton />
-// </SignedOut>
-// <SignedIn>
-//   <UserButton />
-// </SignedIn>

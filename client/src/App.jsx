@@ -8,6 +8,7 @@ import Notes from "./Pages/Notes";
 import Quizzes from "./Pages/Quizzes";
 import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
+import SummarizeNote from "./Pages/SummarizeNote";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/notes/summarize" element={<SummarizeNote />} />
         <Route path="/quizzes" element={<Quizzes />} />
       </Routes>
     </div>

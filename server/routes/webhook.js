@@ -40,13 +40,29 @@ router.post('/webhook', bodyParser.raw({ type: 'application/json' }), async func
         await user.save();
         console.log('User saved to database');
       }
+      else if (eventType === 'user.updated') {
+        const updateData = {
+          firstName: attributes.first_name,
+          lastName: attributes.last_name,
+          username: attributes.username,
+          email: attributes.email_addresses[0].email_address
+        };
+
+        const user = await User.findOneAndUpdate(
+          { clerkUserId: id },
+          updateData,
+          { new: true }
+        );
+
+        if (user) {
+          console.log(`User ${id} has been updated in the database`);
+        }
+      }
       else if (eventType === 'user.deleted') {
         const user = await User.findOneAndDelete({ clerkUserId: id });
         if (user) {
           console.log(`User with the id of ${id} and name ${user.firstName} ${user.lastName} has been deleted from the database`);
-        } else {
-          console.log(`User with the id of ${id} has been deleted from the database`);
-        }
+        } 
       }
       res.status(200).json({
         success: true,

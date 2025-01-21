@@ -15,9 +15,9 @@ export default function Sidebar({ children, expanded, setExpanded }) {
   if (!isLoaded) {
     return null
   }
-  if (isSignedIn) {
-    console.log(user)
-  }
+  // if (isSignedIn) {
+  //   console.log(user)
+  // }
 
   return (
     <aside className="hidden md:block h-[calc(100vh-6rem)]">

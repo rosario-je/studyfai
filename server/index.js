@@ -1,20 +1,31 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { Webhook } from 'svix';
-import bodyParser from 'body-parser';
-import User from './db/models/userModel.js'
-import db from './db/connection.js'
-import userRoutes from './routes/webhook.js'
 
 dotenv.config();
 
+//Webhook imports
+import { Webhook } from 'svix';
+
+//Models
+import db from './db/connection.js'
+
+//Routes
+import userRoutes from './routes/webhook.js'
+
 const app = express();
 
-app.use(cors());
+app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+}));
 
-//Routes for user webhooks
+//Routes
 app.use("/api", userRoutes);
+app.use("/api/gpt", gptAPIRoutes);
 
 const port = process.env.PORT || 5000;
 

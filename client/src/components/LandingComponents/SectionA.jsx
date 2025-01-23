@@ -35,7 +35,7 @@ const SectionA = () => {
           {/* Get Started Btn */}
           <div className="mt-4 flex items-center justify-center gap-x-6">
             <SignedIn>
-              <a href="#" className="btn-primary" onClick={() => Navigate('/dashboard')}>
+              <a href="#" className="btn-primary" onClick={() => Navigate('/home')}>
                 <h2 className="px-5 py-3">Go to dashboard</h2>
               </a>
             </SignedIn>

@@ -9,7 +9,7 @@ import Quizzes from "./Pages/Quizzes";
 import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
 import SummarizeNote from "./Pages/SummarizeNote";
-
+import NotePage from "./Pages/NotePage";
 function App() {
   return (
     <div className="App">
@@ -17,10 +17,11 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/home" element={<Dashboard />} />
         <Route path="/notes" element={<Notes />} />
         <Route path="/notes/summarize" element={<SummarizeNote />} />
         <Route path="/quizzes" element={<Quizzes />} />
+        <Route path="/notes/create" element={<NotePage />} />
       </Routes>
     </div>
   );

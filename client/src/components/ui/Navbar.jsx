@@ -11,8 +11,8 @@ import MainLogo from "./MainLogo";
 import ThemeController from "./ThemeController";
 
 const features = [
-    { name: "Summarize notes", href: "#" },
-    { name: "Enhance notes", href: "#" },
+    { name: "Summarize note", href: "#" },
+    { name: "Enhance note", href: "#" },
 ];
 const navigation = [
     { name: "Home", href: "#" },

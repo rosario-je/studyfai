@@ -30,3 +30,29 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom Quill styles */
+.ql-snow .ql-size-small {
+  font-size: 0.75em;
+}
+
+.ql-snow .ql-size-large {
+  font-size: 1.5em;
+}
+
+.ql-snow .ql-size-huge {
+  font-size: 2.5em;
+}
+
+
+/* This ensures the editor area takes full height */
+.quill {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ql-container {
+  flex: 1;
+  overflow: auto;
+}

@@ -1,5 +1,5 @@
 import { useContext, createContext, useState } from "react"
-
+import { useNavigate } from "react-router-dom";
 const SidebarContext = createContext()
 
 import { UserButton, useUser } from "@clerk/clerk-react";
@@ -12,6 +12,7 @@ import { RiMenuFold3Fill } from "react-icons/ri";
 
 export default function Sidebar({ children, expanded, setExpanded }) {
   const { isSignedIn, user, isLoaded } = useUser()
+
   if (!isLoaded) {
     return null
   }
@@ -21,7 +22,7 @@ export default function Sidebar({ children, expanded, setExpanded }) {
 
   return (
     <aside className="hidden md:block h-[calc(100vh-6rem)]">
-      <nav className={`h-full flex flex-col bg-white shadow-sm ${expanded ? "w-[12vw]" : "w-[5vw]"} transition-all duration-200`}>
+      <nav className={`h-full flex flex-col bg-white shadow-sm ${expanded ? "md:w-[16vw] lg:w-[14vw] xl:w-[10vw]" : "md:w-[5vw] lg:w-[4vw] xl:w-[3vw]"} transition-all duration-200`}>
         <div className={`p-4 pb-2 flex ${expanded ? "justify-between" : "justify-center"} items-center`}>
           <h2 className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"
             }`}>Menu</h2>
@@ -43,11 +44,12 @@ export default function Sidebar({ children, expanded, setExpanded }) {
 
 export function SidebarItem({ icon, text, active, alert }) {
   const { expanded } = useContext(SidebarContext)
+  const navigate = useNavigate()
 
   return (
     <li
       className={`
-        relative flex items-center py-2 px-3 my-1
+        relative flex items-center py-2 my-1
         font-medium rounded-md cursor-pointer
         transition-colors group ${!expanded && "justify-center"}
         ${active
@@ -55,6 +57,7 @@ export function SidebarItem({ icon, text, active, alert }) {
           : "hover:bg-indigo-50 text-gray-600"
         }
     `}
+      onClick={() => navigate(`/${text.toLowerCase()}`)}
     >
       {icon}
       <span

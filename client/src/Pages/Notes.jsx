@@ -17,9 +17,15 @@ const Notes = () => {
         <Navbar />
         <MainPageContainer expanded={expanded} setExpanded={setExpanded}>
           <RightContainer expanded={expanded}>
-            <section className="notes-container w-full h-full">
-              <h1 className="text-2xl font-bold pb-5">Notes</h1>
-              <div className="notes-list flex flex-wrap justify-start items-center gap-4 w-full">
+            <section className="notes-container w-full h-full overflow-y-auto">
+              <h1 className={`text-2xl font-bold pb-5 fixed bg-white z-10 
+                ${expanded 
+                  ? "md:w-[84vw] lg:w-[86vw] xl:w-[90vw]" 
+                  : "md:w-[95vw] lg:w-[96vw] xl:w-[97vw]"
+                } px-4 pt-4`}>
+                Notes
+              </h1>
+              <div className="notes-list flex flex-wrap justify-start items-center gap-4 w-full mt-[5rem]">
                 <NewNote />
                 <NoteContainer title="Note 1" />
                 <NoteContainer title="Note 2" />

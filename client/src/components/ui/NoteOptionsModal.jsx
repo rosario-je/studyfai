@@ -17,10 +17,10 @@ const NoteOptionsModal = () => {
                     <h2 className="text-2xl font-bold text-center">Note Options:</h2>
                     <div className="flex justify-evenly items-center gap-4 h-[85%]">
                         <div>
-                            <button className="btn btn-primary">Summarize Notes</button>
+                            <button className="btn btn-primary" onClick={() => navigate('/notes/summarize')}>Summarize Notes</button>
                         </div>
                         <div>
-                            <button onClick={() => navigate('/notes/create')} className="btn btn-primary">Create Notes</button>
+                            {/* <button onClick={() => navigate('/notes/create')} className="btn btn-primary">Create Notes</button> */}
                         </div>
                     </div>
                 </div>

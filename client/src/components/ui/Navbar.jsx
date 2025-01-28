@@ -29,7 +29,7 @@ const Navbar = () => {
             {/* Main Navbar */}
             <nav
                 aria-label="Global"
-                className="container flex items-center justify-between p-6 lg:px-8"
+                className="flex items-center justify-between p-4 lg:px-8"
             >
                 {/* Navbar Logo */}
                 <MainLogo />

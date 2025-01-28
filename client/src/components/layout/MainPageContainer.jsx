@@ -5,7 +5,7 @@ import { MdOutlineQuiz } from "react-icons/md";
 import Sidebar, { SidebarItem } from '../ui/Sidebar.jsx'
 const MainPageContainer = ({ children, expanded, setExpanded }) => {
     return (
-        <div className="dashboard-container min-h-[calc(100vh-6rem)] flex mt-[6rem]">
+        <div className="dashboard-container h-[calc(100vh-85px)] flex mt-[85px] overflow-hidden">
             <Sidebar expanded={expanded} setExpanded={setExpanded}>
                 <SidebarItem icon={<IoHomeOutline size={25} />} text="Home" />
                 <SidebarItem icon={<IoBookOutline size={25} />} text="Notes" />

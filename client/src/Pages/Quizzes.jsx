@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+//Redux imports
+import { useSelector } from 'react-redux'
+
+//Clerk imports
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 
 //Layout components
@@ -9,13 +12,14 @@ import RightContainer from '../components/layout/RightContainer.jsx'
 import Navbar from '../components/ui/Navbar.jsx'
 
 const Quizzes = () => {
-  const [expanded, setExpanded] = useState(true);
+  const expanded = useSelector((state) => state.sidebar.expanded)
+
   return (
     <>
       <SignedIn>
         <Navbar />
-        <MainPageContainer expanded={expanded} setExpanded={setExpanded}>
-          <RightContainer expanded={expanded}>
+        <MainPageContainer>
+          <RightContainer>
             <div>Quizzes</div>
           </RightContainer>
         </MainPageContainer>

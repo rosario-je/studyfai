@@ -1,6 +1,9 @@
+//Redux imports
+import { useSelector } from 'react-redux'
+
 //Clerk imports
-import { useState } from "react";
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
+
 //Layout components
 import MainPageContainer from '../components/layout/MainPageContainer.jsx'
 import RightContainer from '../components/layout/RightContainer.jsx'
@@ -9,18 +12,20 @@ import RightContainer from '../components/layout/RightContainer.jsx'
 import Navbar from '../components/ui/Navbar.jsx'
 import NoteContainer from '../components/ui/NoteContainer.jsx'
 import NewNote from '../components/ui/NewNote.jsx'
+
+
 const Notes = () => {
-  const [expanded, setExpanded] = useState(true);
+  const expanded = useSelector((state) => state.sidebar.expanded)
   return (
     <>
       <SignedIn>
         <Navbar />
-        <MainPageContainer expanded={expanded} setExpanded={setExpanded}>
-          <RightContainer expanded={expanded}>
+        <MainPageContainer>
+          <RightContainer>
             <section className="notes-container w-full h-full overflow-y-auto">
-              <h1 className={`text-2xl font-bold pb-5 fixed bg-white z-10 
-                ${expanded 
-                  ? "md:w-[84vw] lg:w-[86vw] xl:w-[90vw]" 
+              <h1 className={`text-2xl font-bold pb-5 fixed bg-gray-100 z-10 
+                ${expanded
+                  ? "md:w-[84vw] lg:w-[86vw] xl:w-[90vw]"
                   : "md:w-[95vw] lg:w-[96vw] xl:w-[97vw]"
                 } px-4 pt-4`}>
                 Notes

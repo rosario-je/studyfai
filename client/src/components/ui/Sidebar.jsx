@@ -1,34 +1,37 @@
-import { useContext, createContext, useState } from "react"
+import { useContext, createContext } from "react"
 import { useNavigate } from "react-router-dom";
 const SidebarContext = createContext()
 
-import { UserButton, useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
 
-
+//Icons imports
 import { RiMenuUnfold3Fill } from "react-icons/ri";
 import { RiMenuFold3Fill } from "react-icons/ri";
 
+//Redux imports
+import { useSelector, useDispatch } from 'react-redux';
+import { setExpanded } from '../../redux/sidebarSlice';
 
 
-export default function Sidebar({ children, expanded, setExpanded }) {
-  const { isSignedIn, user, isLoaded } = useUser()
+export default function Sidebar({ children }) {
+  const { isLoaded } = useUser()
+
+  const expanded = useSelector((state) => state.sidebar.expanded)
+  const dispatch = useDispatch()
 
   if (!isLoaded) {
     return null
   }
-  // if (isSignedIn) {
-  //   console.log(user)
-  // }
 
   return (
-    <aside className="hidden md:block h-[calc(100vh-6rem)]">
-      <nav className={`h-full flex flex-col bg-white shadow-sm ${expanded ? "md:w-[16vw] lg:w-[14vw] xl:w-[10vw]" : "md:w-[5vw] lg:w-[4vw] xl:w-[3vw]"} transition-all duration-200`}>
+    <aside className="hidden md:block h-[calc(100vh-6rem)] bg-zinc-100">
+      <nav className={`h-full flex flex-col bg-zinc-100 shadow-sm ${expanded ? "md:w-[16vw] lg:w-[14vw] xl:w-[10vw]" : "md:w-[5vw] lg:w-[4vw] xl:w-[3vw]"} transition-all duration-200`}>
         <div className={`p-4 pb-2 flex ${expanded ? "justify-between" : "justify-center"} items-center`}>
           <h2 className={`overflow-hidden transition-all ${expanded ? "w-32" : "w-0"
             }`}>Menu</h2>
           <button
-            onClick={() => setExpanded((curr) => !curr)}
-            className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"
+            onClick={() => dispatch(setExpanded(expanded ? false : true))}
+            className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
           >
             {expanded ? <RiMenuUnfold3Fill /> : <RiMenuFold3Fill />}
           </button>
@@ -50,11 +53,11 @@ export function SidebarItem({ icon, text, active, alert }) {
     <li
       className={`
         relative flex items-center py-2 my-1
-        font-medium rounded-md cursor-pointer
-        transition-colors group ${!expanded && "justify-center"}
+        font-medium cursor-pointer
+        transition-colors group rounded-xl px-2 ${!expanded && "justify-center"}
         ${active
           ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-          : "hover:bg-indigo-50 text-gray-600"
+          : "hover:bg-gray-200 text-gray-600"
         }
     `}
       onClick={() => navigate(`/${text.toLowerCase()}`)}
@@ -68,7 +71,7 @@ export function SidebarItem({ icon, text, active, alert }) {
       </span>
       {alert && (
         <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${expanded ? "" : "top-2"
+          className={`absolute right-2 w-2 h-2 rounded bg-white ${expanded ? "" : "top-2"
             }`}
         />
       )}

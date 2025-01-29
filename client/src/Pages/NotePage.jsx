@@ -1,13 +1,21 @@
 import React from 'react'
+
+//Components imports
 import Navbar from '../components/ui/Navbar'
+
+//Layout imports
 import MainPageContainer from '../components/layout/MainPageContainer'
 import RightContainer from '../components/layout/RightContainer'
-import { useState } from 'react'
+
+//Quill imports
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
+//Redux imports
+import { useSelector } from 'react-redux'
+
 const NotePage = () => {
-  const [expanded, setExpanded] = useState(true)
+  const expanded = useSelector((state) => state.sidebar.expanded)
   const [content, setContent] = useState('')
   const [plainText, setPlainText] = useState('')
 
@@ -26,8 +34,8 @@ const NotePage = () => {
   return (
     <>
       <Navbar />
-      <MainPageContainer expanded={expanded} setExpanded={setExpanded}>
-        <RightContainer expanded={expanded}>
+      <MainPageContainer>
+        <RightContainer>
           <section className='w-full h-[100%] overflow-y-hidden'>
             <div className="flex items-center gap-x-4 pb-6">
               <input

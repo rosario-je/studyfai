@@ -11,7 +11,7 @@ import MainLogo from "./MainLogo";
 import ThemeController from "./ThemeController";
 
 const features = [
-    { name: "Summarize note", href: "#" },
+    { name: "Summarize note", href: "/notes/summarize" },
     { name: "Enhance note", href: "#" },
 ];
 const navigation = [
@@ -25,7 +25,7 @@ const Navbar = () => {
     const Navigate = useNavigate();
 
     return (
-        <header className="dashboard-navbar fixed inset-x-0 top-0 z-50 backdrop-blur-3xl">
+        <header className="dashboard-navbar fixed inset-x-0 top-0 z-50 backdrop-blur-3xl bg-gray-100">
             {/* Main Navbar */}
             <nav
                 aria-label="Global"

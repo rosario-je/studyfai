@@ -10,8 +10,7 @@ import Navbar from '../components/ui/Navbar.jsx'
 import DashboardNotes from '../components/ui/DashboardNotes.jsx'
 import UserStatsBarChart from '../components/ui/UserStatsBarChart.jsx'
 
-const Dashboard = () => {
-  const [expanded, setExpanded] = useState(true);
+const Dashboard = () => {    
   const { isLoaded, user, isSignedIn } = useUser()
 
   if (!isLoaded) {
@@ -22,13 +21,13 @@ const Dashboard = () => {
     <>
       <SignedIn>
         <Navbar />
-        <MainPageContainer expanded={expanded} setExpanded={setExpanded}>
-          <RightContainer expanded={expanded}>
+        <MainPageContainer>
+          <RightContainer>
             <body className="w-full h-full flex flex-row py-6 gap-x-5">
               <section className='user-data-container flex flex-col justify-between w-full md:w-[70%] pt-5 md:pt-0'>
                 {/* User welcome message */}
-                <div className='welcome-message bg-blue-500 h-[15vh] md:h-[20vh] border rounded-3xl p-6'>
-                  <h2 className='text-white text-3xl md:text-5xl '>Welcome to StudyfAI</h2>
+                <div className='welcome-message bg-white h-[15vh] md:h-[20vh] border border-gray-200 rounded-3xl p-6'>
+                  <h2 className='text-zinc-500 text-3xl md:text-5xl '>Welcome to StudyfAI</h2>
                 </div>
 
                 {/* User notes */}
@@ -52,7 +51,7 @@ const Dashboard = () => {
                 <div className='quiz-cards-container h-[calc(100vh-6rem-25vh-170px-100px)] flex flex-col md:flex-row gap-y-5 md:gap-x-5'>
 
                   {/* Quizzes */}
-                  <div className='quizzes-container w-full h-full bg-zinc-100 border-[1px] border-zinc-400 rounded-3xl p-6 flex flex-col'>
+                  <div className='quizzes-container w-full h-full bg-white border-[1px] border-gray-200 rounded-3xl p-6 flex flex-col'>
                     <h2 className='text-zinc-500 leading-tight text-xl md:text-4xl font-bold pb-2 '>Quizzes</h2>
                     <div className='quiz-user-data-container flex flex-row gap-x-5 flex-1'>
                       <div className='bg-blue-500 w-full h-full rounded-2xl'>
@@ -65,7 +64,7 @@ const Dashboard = () => {
                   </div>
 
                   {/* Flashcards */}
-                  <div className='quizzes-container w-full h-full bg-zinc-100 border-[1px] border-zinc-400 rounded-3xl p-6 flex flex-col'>
+                  <div className='quizzes-container w-full h-full bg-white border-[1px] border-gray-200 rounded-3xl p-6 flex flex-col'>
                     <h2 className='text-zinc-500 leading-tight text-xl md:text-4xl font-bold pb-2 '>Flashcards</h2>
                     <div className='quiz-user-data-container flex flex-col gap-y-5 flex-1'>
                       <div className='bg-blue-500 w-full h-full rounded-2xl'>
@@ -85,7 +84,7 @@ const Dashboard = () => {
               </section>
 
               {/* User container */}
-              <section className='flex flex-col items-center justify-between md:w-[30%] h-auto  bg-zinc-100 rounded-3xl p-6'>
+              <section className='flex flex-col items-center justify-between md:w-[30%] h-auto  bg-white border border-gray-200 rounded-3xl p-6'>
                 {/* User avatar */}
                 <div className='user-img-name-container w-full flex flex-col items-center'>
                   {user && (

@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "pdf-react": "^1.5.1",
+    "pdfjs-dist": "^4.10.38",
     "react-dropzone": "^14.3.5",
     "react-quill": "^2.0.0"
   }

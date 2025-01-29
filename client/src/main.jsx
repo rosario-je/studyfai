@@ -7,6 +7,10 @@ import { BrowserRouter } from "react-router-dom";
 //Clerk imports
 import { ClerkProvider } from "@clerk/clerk-react";
 
+//Redux imports
+import { Provider } from "react-redux";
+import { store } from "./redux/Store";
+
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
@@ -14,19 +18,21 @@ if (!PUBLISHABLE_KEY) {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ClerkProvider
-      publishableKey={PUBLISHABLE_KEY}
-      signInFallbackRedirectUrl="/home"
-      signUpFallbackRedirectUrl="/home"
-    >
-      <BrowserRouter
-        future={{
-          v7_relativeSplatPath: true,
-          v7_startTransition: true,
-        }}
+    <Provider store={store}>
+      <ClerkProvider
+        publishableKey={PUBLISHABLE_KEY}
+        signInFallbackRedirectUrl="/home"
+        signUpFallbackRedirectUrl="/home"
       >
-        <App />
-      </BrowserRouter>
-    </ClerkProvider>
+        <BrowserRouter
+          future={{
+            v7_relativeSplatPath: true,
+            v7_startTransition: true,
+          }}
+        >
+          <App />
+        </BrowserRouter>
+      </ClerkProvider>
+    </Provider>
   </StrictMode>
 );

@@ -3,7 +3,7 @@ import React from 'react'
 import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
 
 
-const DropdownMenu = ({ title, options, isOpen, onToggle }) => {
+const DropdownMenu = ({ title, options, isOpen, onToggle, onSelect }) => {
     return (
         <div className='dropdown-menu-container w-[20%] flex flex-col gap-y-2'>
             <details className="group" open={isOpen} onClick={(e) => {
@@ -21,7 +21,7 @@ const DropdownMenu = ({ title, options, isOpen, onToggle }) => {
 
                 <div className='dropdown-menu-content mt-2 w-full bg-gray-100 flex flex-col items-start justify-evenly p-2 rounded-xl'>
                     {options.map((option, index) => (
-                        <button key={index} className='w-full text-left hover:bg-gray-200 p-2 rounded-xl transition-colors'>{option}</button>
+                        <button key={index} value={option} onClick={() => onSelect(option)} className='w-full text-left hover:bg-gray-200 p-2 rounded-xl transition-colors'>{option}</button>
                     ))}
                 </div>
             </details>

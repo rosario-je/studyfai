@@ -12,6 +12,7 @@ import db from './db/connection.js'
 
 //Routes
 import userRoutes from './routes/webhook.js'
+import gptAPIRoutes from './routes/gptAPI.js'
 
 const app = express();
 
